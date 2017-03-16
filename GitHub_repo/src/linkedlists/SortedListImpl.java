@@ -42,6 +42,7 @@ public class SortedListImpl<E extends Comparable<E>> implements SortedListIF<E> 
         return data;
     }
 
+
     @Override
     public void display() {
         SingleLinkedListIterator<E> iter = new SingleLinkedListIterator(head);
