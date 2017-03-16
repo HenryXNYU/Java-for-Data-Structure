@@ -140,6 +140,113 @@ public class LinkedListsLauncher {
         myList.display();
     }
     
+    public void testStack(){
+        Integer[] array = new Integer[SIZE];
+        int i;
+        Random rd = new Random();
+        
+        System.out.println("\n\nSTACK TIME");
+        for (i = 0; i < SIZE; i++)
+            array[i] = 0;
+        StackFromSingleLinkedListIF<Integer> myStack = new StackFromSingleLinkedListImpl();
+        try {
+            myStack.push(rd.nextInt(101));
+            myStack.push(rd.nextInt(101));
+            myStack.push(rd.nextInt(101));
+        }catch(Exception e){
+            e.printStackTrace(); 
+        }
+        myStack.display();
+        try{
+            System.out.println("Popping " + myStack.pop());
+            System.out.println("Popping " + myStack.pop());
+            myStack.display();
+            System.out.println("Popping " + myStack.pop());
+        } catch (Exception e) {
+            e.printStackTrace();            
+        }        
+    }
+    
+    public void testQueue(){
+        Integer[] array = new Integer[SIZE];
+        int i;
+        Random rd = new Random();
+        
+        System.out.println("\n\nQUEUE TIME");
+        for (i = 0; i < SIZE; i++)
+            array[i] = 0;
+        QueueFromDoubleEndedListIF<Integer> myQueue = new QueueFromDoubleEndedListImpl<>();
+        try {
+            for (i = 0; i < SIZE; i++) {
+                int n = rd.nextInt(101);
+                System.out.println("Queueing "+n);
+                myQueue.enqueue(n);                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        myQueue.display();
+        try{
+            System.out.println("Dequeuing " + myQueue.dequeue());
+            System.out.println("Dequeuing " + myQueue.dequeue());            
+            myQueue.display();
+            System.out.println("Dequeuing " + myQueue.dequeue());
+        } catch (Exception e) {
+            e.printStackTrace();            
+        }
+        myQueue.display();
+        try {
+            myQueue.enqueue(rd.nextInt(101));
+            myQueue.enqueue(rd.nextInt(101));
+            myQueue.enqueue(rd.nextInt(101));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        myQueue.display();
+    }
+    /*
+    public void testPriorityQueue(){
+        Integer[] array = new Integer[SIZE];
+        int i;
+        Random rd = new Random();
+        
+        System.out.println("\n\nPRIORITY QUEUE TIME");
+        for (i = 0; i < SIZE; i++)
+            array[i] = 0;
+        PriorityQueueFromSortedListIF<Integer> myQueue = new PriorityQueueFromSortedListIFImpl<>();
+        try {
+            for (i = 0; i < SIZE; i++) {
+                int n = rd.nextInt(101);
+                System.out.println("Queueing ("+i+","+n+")");
+                myQueue.insert(n, i);                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        myQueue.display();
+        try{
+            System.out.println("Dequeuing " + myQueue.remove());
+            System.out.println("Dequeuing " + myQueue.remove());            
+            myQueue.display();
+            System.out.println("Dequeuing " + myQueue.remove());
+        } catch (Exception e) {
+            e.printStackTrace();            
+        }
+        myQueue.display();
+        try {
+            for (i = 0; i < 3; i++) {
+                int v = rd.nextInt(101);
+                int k = rd.nextInt(12);
+                myQueue.insert(v, k);
+                System.out.println("Queueing ("+k+","+v+")");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        myQueue.display();
+    }
+    */
+    
     /**
      * @param args the command line arguments
      */
@@ -147,8 +254,11 @@ public class LinkedListsLauncher {
         LinkedListsLauncher lll = new LinkedListsLauncher();
         //lll.testSLL();
         //lll.testDEL();
-    //    lll.testSortedList();
-        //lll.testDoubleLinkedList();
+        System.out.println("hello");
+        lll.testSortedList();
+        lll.testDoubleLinkedList();
+    //    lll.testQueue();
+        //lll.testStack();
     }
     
 }
