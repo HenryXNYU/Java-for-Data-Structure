@@ -14,25 +14,26 @@ public class StackFromSingleLinkedListImpl<E> implements StackFromSingleLinkedLi
     @Override
     public void push(E element) {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        list.insertFirst(element);
     }
 
     @Override
     public E pop() throws NoSuchElementException {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        E deletedData = list.removeFirst();
+        return deletedData;
     }
 
     @Override
     public boolean isEmpty() {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        return list.isEmpty();
     }
 
     @Override
     public void display() {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        list.display();
     }
     
 }

@@ -16,37 +16,38 @@ public class DequeFromDoubleLinkedListImpl<E extends Comparable<E>>
     @Override
     public void insertLeft(E element) {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        dll.insertFirst(element);
     }
 
     @Override
     public E removeLeft() throws NoSuchElementException {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        E deletedData = dll.removeFirst();
+        return deletedData;
     }
 
     @Override
     public void insertRight(E element) {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        dll.insertLast(element);
     }
 
     @Override
     public E removeRight() throws NoSuchElementException {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        E deletedData = dll.removeLast();
+        return deletedData;
     }
 
     @Override
     public boolean isEmpty() {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        return dll.isEmpty();
     }
 
     @Override
     public void display() {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        dll.display();
     }
-    
 }
