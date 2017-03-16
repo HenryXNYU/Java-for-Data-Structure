@@ -204,7 +204,7 @@ public class LinkedListsLauncher {
         }
         myQueue.display();
     }
-    /*
+    
     public void testPriorityQueue(){
         Integer[] array = new Integer[SIZE];
         int i;
@@ -218,7 +218,7 @@ public class LinkedListsLauncher {
             for (i = 0; i < SIZE; i++) {
                 int n = rd.nextInt(101);
                 System.out.println("Queueing ("+i+","+n+")");
-                myQueue.insert(n, i);                
+                myQueue.insert(n);                
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -237,7 +237,7 @@ public class LinkedListsLauncher {
             for (i = 0; i < 3; i++) {
                 int v = rd.nextInt(101);
                 int k = rd.nextInt(12);
-                myQueue.insert(v, k);
+                myQueue.insert(v);
                 System.out.println("Queueing ("+k+","+v+")");
             }
         } catch (Exception e) {
@@ -245,7 +245,7 @@ public class LinkedListsLauncher {
         }
         myQueue.display();
     }
-    */
+    
     
     /**
      * @param args the command line arguments
@@ -254,10 +254,11 @@ public class LinkedListsLauncher {
         LinkedListsLauncher lll = new LinkedListsLauncher();
         //lll.testSLL();
         //lll.testDEL();
-        System.out.println("hello");
-        lll.testSortedList();
-        lll.testDoubleLinkedList();
-    //    lll.testQueue();
+        //lll.testSortedList();
+        //lll.testDoubleLinkedList();
+        
+        lll.testPriorityQueue();
+//        lll.testQueue();
         //lll.testStack();
     }
     
