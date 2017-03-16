@@ -7,42 +7,47 @@ public class SortedListImpl<E extends Comparable<E>> implements SortedListIF<E> 
     SingleLinkNode<E> head;
 
     public SortedListImpl() {
-        head = new SingleLinkNode<>();
+        head = null;
     }
 
+    public boolean isEmpty() {
+        return (head == null);
+    }    
+    
     @Override
     public void insert(E e) {
-        //TODO
-        SingleLinkNode<E> currentNode = head.getNext();
-        SingleLinkNode<E> preNode = head;
-        SingleLinkNode<E> newNode = new SingleLinkNode<>(e);
-        E currentData = currentNode.getData();
-        if (currentNode==null) {
-            preNode.setNext(newNode);
-            return;
+        SingleLinkNode<E> n = new SingleLinkNode(e);
+        SingleLinkNode<E> curr = head;
+        SingleLinkNode<E> previous = head;
+        while ((curr != null) && (e.compareTo(curr.getData()) > 0)) {
+            previous = curr;
+            curr = curr.getNext();
         }
-        else if (e.compareTo(currentData) <= 0) {
-            preNode.setNext(newNode);
-            newNode.setNext(currentNode);
-            return;
-        }
-        else if (e.compareTo(currentData) > 0){
-            preNode = currentNode;
-            currentNode = currentNode.getNext();
-            return;
+        if (previous == curr) { 
+        //inserted item is smaller than head item OR list is empty
+            n.setNext(head);
+            head = n;
+        } else {
+            n.setNext(curr);
+            previous.setNext(n);
         }
     }
 
     @Override
     public E removeFirst() throws NoSuchElementException {
-        //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (head == null)
+            throw new NoSuchElementException();
+        E data = head.getData();
+        head = head.getNext();
+        return data;
     }
 
     @Override
     public void display() {
-        //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        SingleLinkedListIterator<E> iter = new SingleLinkedListIterator(head);
+        while (iter.hasNext())
+            System.out.print(iter.next().toString() + " ");
+        System.out.println("");
     }
-    
+
 }
